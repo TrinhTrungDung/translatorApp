@@ -1,5 +1,6 @@
 package translator;
 
+import javafx.application.Application;
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -51,24 +52,5 @@ public class TranslatorTest {
 
     @Test
     public void test3() {
-        ExternalDatabase externalDatabase = new ExternalDatabase(new File("test.txt"));
-        SavePerformedTranslations savePerformedTranslations = new SavePerformedTranslations();
-        TranslatorFactory translatorFactory = new TranslatorFactory();
-        Translator numberTranslator = translatorFactory.getTranslator("NUMBER");
-        Translator phraseTranslator = translatorFactory.getTranslator("PHRASE");
-
-        if (numberTranslator.getMapping().containsKey("one")) {
-            String[] translated = numberTranslator.translate("one").split(",");
-            savePerformedTranslations.add(new PerformedTranslation(translated[0], translated[1]));
-            System.out.println(savePerformedTranslations.getPerformedTranslations());
-        } else if (phraseTranslator.getMapping().containsKey("one")) {
-            String[] translated = phraseTranslator.translate("one").split(",");
-            savePerformedTranslations.add(new PerformedTranslation(translated[0], translated[1]));
-            System.out.println(savePerformedTranslations.getPerformedTranslations());
-        } else {
-            System.out.println("error");
-        }
-
-        externalDatabase
     }
 }
